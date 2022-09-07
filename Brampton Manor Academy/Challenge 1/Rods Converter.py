@@ -1,33 +1,27 @@
-def rodsInput(rods):
+def rodsInput():
+    rods=float(input("Input rods: "))
     print("You input",rods,"rods")
+    return rods
 
 def metersConvert(rods):
-    meters = rods * 5.0292
-    print("Meters:",meters)
+    return rods * 5.0292
 
 def feetConvert(rods):
-    feet = rods * 16.5
-    print("Feet:",feet)
+    return rods * 16.5
 
 def milesConvert(rods):
-    miles = rods * 0.003125
-    print("Miles:",miles)
+    return rods * 0.003125
 
 def furlongsConvert(rods):
-    furlongs = rods * 0.025
-    print("Furlongs:",furlongs)
+    return rods * 0.025
 
 def walkConvert(rods):
-    timeMinutes = rods / 16.5333
-    print("Minutes to walk",rods,"rods:",timeMinutes)
-
-rods=float(input("Input rods: "))
-
-rodsInput(rods)
-metersConvert(rods)
-feetConvert(rods)
-milesConvert(rods)
-furlongsConvert(rods)
-walkConvert(rods)
+    return rods / 16.5333
 
 
+rods = rodsInput()
+print(f"Meters: {metersConvert(rods)}")
+print(f"Feet: {feetConvert(rods)}")
+print(f"Miles: {milesConvert(rods)}")
+print(f"Furlongs: {furlongsConvert(rods)}")
+print(f"Time to walk {rods} rods: {walkConvert(rods)}")
