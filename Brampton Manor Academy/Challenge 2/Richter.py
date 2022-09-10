@@ -1,25 +1,31 @@
-def richter(scaleList):
-    for i in range (0,len(scaleList)):
-        scale = scaleList[i]
+def richter(scaleTuple):
+    print(f'{"Richter":<16} {"Joules":<32} TNT')
+    for scale in scaleTuple:
         energy = 10**((1.5*scale)+4.8)
         oneTonneTNT = 4.184 * 10**9
-        TNT = energy / oneTonneTNT
-        print("Richter",scale,"-->",energy,"JOULES")
-        print("Richter",scale,"-->",TNT,"TNT")
+        tnt = energy / oneTonneTNT
+        print(f"{scale:<16} {energy:<32} {tnt}")
 
-def richterValueOutput(richterValue):
-    print("Richter value:",richterValue)
+def richterValueInput():
+    richterValue = float(input("Enter a Richter scale value: "))
+    print(f"Richter value {richterValue}")
+    return richterValue
 
-def equivalence(richterValue):
+def energyCalculation(richterValue):
+    energy = 10**((1.5*richterValue)+4.8)
+    print(f"Equivalence in joules: {energy}")
+    return energy
+
+def tntCalculation(richterValue):
     energy = 10**((1.5*richterValue)+4.8)
     oneTonneTNT = 4.184 * 10**9
-    TNT = energy / oneTonneTNT
-    print("Equivalence in joules:",energy)
-    print("Equivalence in tonnes of TNT:",TNT)
+    tnt = energy / oneTonneTNT
+    print(f"Equivalence in tonnes of TNT: {tnt}")
+    return tnt
 
-
-scaleList = (1,5,9.1,9.3,9.5)
-richter(scaleList)
-richterValue = float(input("Enter a Richter scale value: "))
-richterValueOutput(richterValue)
-equivalence(richterValue)
+if __name__ == "__main__":
+    scaleTuple = (1,5,9.1,9.3,9.5)
+    richter(scaleTuple)
+    richterValue = richterValueInput()
+    energyCalculation(richterValue)
+    tntCaclulation(richterValue)
