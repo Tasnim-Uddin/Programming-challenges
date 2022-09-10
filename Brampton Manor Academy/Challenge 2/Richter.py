@@ -13,19 +13,19 @@ def richterValueInput():
 
 def energyCalculation(richterValue):
     energy = 10**((1.5*richterValue)+4.8)
-    print(f"Equivalence in joules: {energy}")
     return energy
 
 def tntCalculation(richterValue):
     energy = 10**((1.5*richterValue)+4.8)
     oneTonneTNT = 4.184 * 10**9
     tnt = energy / oneTonneTNT
-    print(f"Equivalence in tonnes of TNT: {tnt}")
     return tnt
 
 if __name__ == "__main__":
     scaleTuple = (1,5,9.1,9.3,9.5)
     richter(scaleTuple)
     richterValue = richterValueInput()
-    energyCalculation(richterValue)
-    tntCaclulation(richterValue)
+    energy = energyCalculation(richterValue)
+    tnt = tntCalculation(richterValue)
+    print(f"Equivalence in joules: {energy}")
+    print(f"Equivalence in tonnes of TNT: {tnt}")
