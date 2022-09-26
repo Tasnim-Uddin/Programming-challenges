@@ -11,16 +11,45 @@ def scrape(url):
 
 if __name__ == "__main__":
     html = scrape(url)
+
+
+
+
+
+
+
+
+
+
+
+    print(f'{"POSITION":<16}')
+
+    x = 0
     i = 0
 
-    while True: #this must change
+    while x < 10:
         open_tr = html.find('<tr>', i)
         close_tr = html.find("</tr>", open_tr)
-        
+
         newstring = html[open_tr:close_tr]
-        lookingfor = '"position">'
-        pos_start = newstring.find(lookingfor)
+        
+        look_for_pos = '"position">'
+        pos_start = newstring.find(look_for_pos)
         pos_end = newstring.find('</', pos_start)
-        print(newstring[pos_start+len(lookingfor):pos_end])
+        position = newstring[pos_start+len(look_for_pos):pos_end]
+
+        look_for_song = 'href="/search/singles/'
+        song_start = newstring.find(look_for_song)
+        song_end = newstring.find('</',song_start)
+        song = newstring[song_start+len(look_for_song):song_end]
+
+        print(f'{position:<16} {song:<16}')
+
+
+
+
+        
 
         i = close_tr
+        x += 1
+
