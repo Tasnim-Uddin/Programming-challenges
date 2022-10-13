@@ -7,9 +7,9 @@ public class PackedLong {
      */
     public static boolean get(long packed, int position) {
         // set "check" to equal 1 if the "position" bit in "packed" is set to 1
-        long check = (packed>>position)&1;
+        long check = (packed>>position)&1L;
 
-        return (check == 1);
+        return (check == 1L);
     }
 
     /*
@@ -19,11 +19,12 @@ public class PackedLong {
     public static long set(long packed, int position, boolean value) {
         if (value) {
             // update the value "packed" with the bit at "position" set to 1
-            long new_packed = (packed>>position)|1;
+            packed = packed | (1L<<position);
 
-        }else {
+        }
+        else {
             // update the value "packed" with the bit a "position" set to 0
-            long new_packed = (packed>>position)|0;
+            packed = packed & ~(1L<<position);
 
         }
         return packed;
