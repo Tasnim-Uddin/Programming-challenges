@@ -1,10 +1,10 @@
 public class TinyLife {
 
     public static void main(String[] args) throws Exception {
-        Long world = Long.parseLong(args[0]);
+        Long world = Long.decode(args[0]);
         print(world);
-        world = setCell(world, 1, 1, true );
-        System.out.println(world);
+        Long updated_world = setCell(world, 1, 1, true );
+        print(updated_world);
     }
 
     public static boolean getCell(long world, int col, int row) {
@@ -14,8 +14,8 @@ public class TinyLife {
 
     public static long setCell(long world, int col, int row, boolean value) {
         int place = (col * 7) + (col + row);
-        long grid = PackedLong.set(world, place, value);
-        return grid;
+        long updated_world = PackedLong.set(world, place, value);
+        return updated_world;
     }
 
     public static void print(long world) {
@@ -28,13 +28,5 @@ public class TinyLife {
         }
     }
 
-    public static int countNeighbours(long world, int col, int row) {
-    }
-
-    public static boolean computeCell(long world, int col, int row){
-    }
-
-    public static long nextGeneration(long world){
-    }
 
 }
